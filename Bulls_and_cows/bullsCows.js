@@ -33,19 +33,26 @@ function testNumber(answer) {
 var turns = 10;
 
 for (let j = 0; j <= 10; j++){
+  bulls = 0;
+  cows = 0;
   var answer = prompt("Введите четыри цифры!");
+  if (!answer) {
+    alert('Вы проиграли' + '\r\nЗагаданнное число: ' + randomNumber);
+    break;
+  }
   testNumber(answer);
   if (turns == 0 || bulls == 4) {
     let status = ' Вы проиграли ';
     if (bulls == 4) {
       status = ' Вы выиграли ';
+      alert(status + '\r\nЗагаданнное число: ' + randomNumber);
       break;
     }
-    alert('You' + status + '\r\nЗагаданнное число: ' + randomNumber);
+    alert(status + '\r\nЗагаданнное число: ' + randomNumber);
     break;
   }
   turns-- ;
-  alert('Осталось попыток: ' + turns + ' Ваше ответ: ' + answer + ' - ' + ' Быки: ' + bulls + ' Коровы ' + cows);
+  document.write('Осталось попыток: ' + turns + ' Ваше ответ: ' + answer + ' - ' + ' Быки: ' + bulls + ' Коровы ' + cows + '<br>');
 }
 
 
